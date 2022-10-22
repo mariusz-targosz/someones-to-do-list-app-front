@@ -6,7 +6,7 @@ import { Configuration } from "./configuration.models";
 
 export const environment: Configuration = {
   production: false,
-  apiUrl: '',
+  apiUrl: 'http://localhost:62116',
 };
 
 /*
