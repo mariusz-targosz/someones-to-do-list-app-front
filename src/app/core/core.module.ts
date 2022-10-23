@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { ApiPrefixInterceptor } from './http/interceptors/api-prefix.interceptor';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ApiPrefixInterceptor } from './http/interceptors/api-prefix.interceptor
     CommonModule,
     BrowserAnimationsModule,
     CoreRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     {
