@@ -4,7 +4,7 @@ import { TodosListComponent } from './components/todos-list/todos-list.component
 
 const routes: Routes = [
   {
-    path: 'list',
+    path: '',
     component: TodosListComponent
   }
 ];
