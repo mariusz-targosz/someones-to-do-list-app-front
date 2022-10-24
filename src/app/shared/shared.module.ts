@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NoWhitespaceDirective } from './directives/no-whitespace.directive';
 
 const MODULES = [
   FormsModule,
   NgbModule,
-  MaterialModule
+  MaterialModule,
+  ReactiveFormsModule
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NoWhitespaceDirective
+  ],
   imports: [
     CommonModule,
     ...MODULES
