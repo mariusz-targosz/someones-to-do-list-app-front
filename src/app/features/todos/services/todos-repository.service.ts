@@ -21,8 +21,8 @@ export class TodosRepositoryService {
     return this._http.post<Todo>(API_ROUTES.TODOS, todoCreate);
   }
 
-  update(todoUpdate: TodoUpdate): Observable<void> {
-    return this._http.put<void>(API_ROUTES.TODOS, todoUpdate);
+  update(id: string, todoUpdate: TodoUpdate): Observable<void> {
+    return this._http.put<void>(API_ROUTES.UPDATE(id), todoUpdate);
   }
 
   delete(id: string): Observable<void> {
