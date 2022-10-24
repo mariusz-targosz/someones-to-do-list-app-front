@@ -1,1 +1,8 @@
-<p>todos-list works!</p>
+<mat-form-field class="w-100">
+    <input matInput type="text" placeholder="New task" [(ngModel)]="title" (keydown.enter)="addTodo()">
+</mat-form-field>
+
+<mat-selection-list *ngFor="let todo of todos">
+    <app-todos-list-item [todo]="todo" (completeEvent)="completeTodo($event)" (editEvent)="editTodo($event)">
+    </app-todos-list-item>
+</mat-selection-list>
