@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { TodosDialogsService } from '../../dialogs/todos-dialogs.service';
 import { TodoCreate } from '../../models/todo-create.model';
 import { Todo } from '../../models/todo.model';
 import { TodosRepositoryService } from '../../services/todos-repository.service';
 import { TodosListService } from '../../services/todos-list.service';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-todos-list',
@@ -21,7 +21,8 @@ export class TodosListComponent implements OnInit, OnDestroy {
 
   constructor(private readonly _todosListService: TodosListService,
     private readonly _repository: TodosRepositoryService,
-    private readonly _dialogService: TodosDialogsService) {
+    private readonly _dialogService: TodosDialogsService,
+    private readonly _toastr: ToastrService) {
   }
 
   get todos(): Todo[] {
@@ -56,6 +57,7 @@ export class TodosListComponent implements OnInit, OnDestroy {
   completeTodo(todo: Todo): void {
     this._repository.delete(todo.id)
       .subscribe(_ => {
+        this._toastr.info('The task has been completed');
         this._todosListService.getTodos();
       });
   }

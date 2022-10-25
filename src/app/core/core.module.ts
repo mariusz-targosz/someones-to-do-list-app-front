@@ -7,6 +7,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { ApiPrefixInterceptor } from './http/interceptors/api-prefix.interceptor';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule } from "ngx-toastr";
 
 
 @NgModule({
@@ -18,7 +19,10 @@ import { SharedModule } from '../shared/shared.module';
     BrowserAnimationsModule,
     CoreRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left'
+    })
   ],
   providers: [
     {
