@@ -7,6 +7,7 @@ import { Configuration } from "./configuration.models";
 export const environment: Configuration = {
   production: false,
   apiUrl: 'http://localhost:62116',
+  googleClientId: "54077787844-l31r9adird9vrdd5qm9lsp9kfl6f6rgb.apps.googleusercontent.com"
 };
 
 /*

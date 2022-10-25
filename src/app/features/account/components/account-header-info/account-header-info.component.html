@@ -1,0 +1,12 @@
+<mat-card style="display: none"></mat-card>
+<div class="clickable" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" [matMenuTriggerFor]="menu">
+    <small data-test-id="current-user">{{email}}</small>
+    <img class="clickable" [src]="image" alt="user img" matCardAvatar />
+</div>
+
+<mat-menu xPosition="before" #menu="matMenu">
+    <button mat-menu-item (click)="signOut()">
+        <mat-icon>logout</mat-icon>
+        <span data-test-id="sign-out">Sign Out</span>
+    </button>
+</mat-menu>

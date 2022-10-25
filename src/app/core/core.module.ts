@@ -8,11 +8,14 @@ import { LayoutComponent } from './layout/layout.component';
 import { ApiPrefixInterceptor } from './http/interceptors/api-prefix.interceptor';
 import { SharedModule } from '../shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
-
+import { HeaderComponent } from './layout/header/header.component';
+import { AccountModule } from '../features/account/account.module';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,9 @@ import { ToastrModule } from "ngx-toastr";
     SharedModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-left'
-    })
+    }),
+    AccountModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     {
