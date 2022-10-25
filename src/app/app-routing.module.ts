@@ -6,9 +6,9 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children:[
+    children: [
       {
-        path: 'todos',
+        path: '',
         loadChildren: () => import('./features/todos/todos.module').then(m => m.TodosModule)
       }
     ]
