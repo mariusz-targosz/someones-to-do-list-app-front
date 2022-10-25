@@ -13,6 +13,7 @@ export class TodosDialogsService {
 
   editTodo(todo: Todo): void {
     this._dialog.open(EditTodoDialogComponent, {
+      width: "30%",
       data: { todo },
     });
   }
