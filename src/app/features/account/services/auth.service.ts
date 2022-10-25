@@ -24,21 +24,7 @@ export class AuthService {
   private _currentUser?: CurrentUser;
 
   constructor(private readonly _oAuthService: OAuthService) {
-    console.log('constr');
-    _oAuthService.configure(this._getAuthConfiguration());
-    this._oAuthService.loadDiscoveryDocument().then(() => {
-      this._oAuthService.tryLoginImplicitFlow().then(() => {
-        if (!this._oAuthService.hasValidAccessToken()) {
-          this._oAuthService.initLoginFlow();
-        }
-        else {
-          this._oAuthService.loadUserProfile().then((userProfile) => {
-            const googleUser = userProfile as GoogleUser;
-            this._currentUser = googleUser.info as CurrentUser;
-          })
-        }
-      });
-    });
+    this._oAuthService.configure(this._getAuthConfiguration());
   }
 
   get isLoggedIn(): boolean {
@@ -51,6 +37,25 @@ export class AuthService {
 
   get token(): string {
     return this._oAuthService.getAccessToken();
+  }
+
+  async initialize(): Promise<void> {
+    return new Promise(resolve => {
+      this._oAuthService.loadDiscoveryDocument().then(() => {
+        this._oAuthService.tryLoginImplicitFlow().then(() => {
+          if (!this._oAuthService.hasValidAccessToken()) {
+            this._oAuthService.initLoginFlow();
+            resolve();
+          } else {
+            this._oAuthService.loadUserProfile().then((userProfile) => {
+              const googleUser = userProfile as GoogleUser;
+              this._currentUser = googleUser.info as CurrentUser;
+              resolve();
+            })
+          }
+        });
+      });
+    })
   }
 
   signOut(): void {

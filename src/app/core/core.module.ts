@@ -27,7 +27,11 @@ import { OAuthModule } from 'angular-oauth2-oidc';
       positionClass: 'toast-bottom-left'
     }),
     AccountModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [
     {
