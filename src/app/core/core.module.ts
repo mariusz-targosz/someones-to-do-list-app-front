@@ -29,7 +29,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     AccountModule,
     OAuthModule.forRoot({
       resourceServer: {
-        sendAccessToken: true
+        sendAccessToken: true,
+        allowedUrls: ['http://localhost:4200/'],
       }
     })
   ],
