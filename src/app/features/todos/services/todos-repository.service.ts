@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoCreate } from '../models/todo-create.model';
+import { TodoList } from '../models/todo-list.model';
 import { TodoUpdate } from '../models/todo-update.model';
 import { Todo } from '../models/todo.model';
 
@@ -13,12 +14,12 @@ export class TodosRepositoryService {
   constructor(private readonly _http: HttpClient) {
   }
 
-  list(): Observable<Todo[]> {
-    return this._http.get<Todo[]>(API_ROUTES.TODOS);
+  list(pageSize: number, pageNumber: number): Observable<TodoList> {
+    return this._http.get<TodoList>(API_ROUTES.LIST(pageSize, pageNumber));
   }
 
   create(todoCreate: TodoCreate): Observable<Todo> {
-    return this._http.post<Todo>(API_ROUTES.TODOS, todoCreate);
+    return this._http.post<Todo>(API_ROUTES.CREATE, todoCreate);
   }
 
   update(id: string, todoUpdate: TodoUpdate): Observable<void> {
@@ -31,7 +32,8 @@ export class TodosRepositoryService {
 }
 
 const API_ROUTES = {
-  TODOS: '/api/todos',
+  LIST: (pageSize: number, pageNumber: number) => `/api/todos?pageSize=${pageSize}&pageNumber=${pageNumber}`,
+  CREATE: '/api/todos',
   UPDATE: (id: string) => `/api/todos/${encodeURIComponent(id)}`,
   DELETE: (id: string) => `/api/todos/${encodeURIComponent(id)}`,
 }

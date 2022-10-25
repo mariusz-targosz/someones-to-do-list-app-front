@@ -6,3 +6,7 @@
     <app-todos-list-item [todo]="todo" (completeEvent)="completeTodo($event)" (editEvent)="editTodo($event)">
     </app-todos-list-item>
 </mat-selection-list>
+
+<mat-paginator #paginator [length]="total" [pageIndex]="currentPage - 1" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+</mat-paginator>

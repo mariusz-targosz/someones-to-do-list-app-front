@@ -57,7 +57,7 @@ export class EditTodoDialogComponent implements OnInit {
       this._repository.update(this.dialogData.todo.id, todoUpdate)
         .subscribe({
           next: () => {
-            this._todosListService.getTodos();
+            this._todosListService.initializeTodos();
             this._dialogRef.close();
           }
         });

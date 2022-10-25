@@ -11,6 +11,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const MATERIAL_MODULES = [
   MatCardModule,
@@ -23,7 +24,8 @@ const MATERIAL_MODULES = [
   MatCheckboxModule,
   MatToolbarModule,
   MatDialogModule,
-  MatButtonModule
+  MatButtonModule,
+  MatPaginatorModule
 ]
 
 @NgModule({
