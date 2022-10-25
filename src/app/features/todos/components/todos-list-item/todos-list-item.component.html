@@ -1,6 +1,8 @@
-<mat-list-item value="item.id" class="item">
-    <div mat-line (click)="edit()">
-        <span [ngClass]="isComplete ? 'strikethrough' : 'null'">{{todo.title}}</span>
-    </div>
-    <mat-checkbox (checked)="isComplete" (click)="complete()"></mat-checkbox>
-</mat-list-item>
+<mat-card class="p-0">
+    <mat-list-item value="item.id" class="item">
+        <div mat-line (click)="edit()">
+            <span>{{todo.title}}</span>
+        </div>
+        <mat-checkbox (checked)="isComplete" (click)="complete()"></mat-checkbox>
+    </mat-list-item>
+</mat-card>
