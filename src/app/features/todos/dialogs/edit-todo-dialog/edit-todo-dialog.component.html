@@ -24,11 +24,13 @@
     </form>
 </mat-dialog-content>
 
-<div class="text-right">
-    <button mat-raised-button color="primary" matTooltip="Ok" (click)="editTodo()" [disabled]="submitInProgress">
+<div style="text-align: right;">
+    <button mat-raised-button color="primary" matTooltip="Ok" aria-label="Cancel" (click)="editTodo()"
+        [disabled]="submitInProgress">
         Ok
     </button>
-    <button mat-raised-button matTooltip="Cancel" (click)="cancelClick()" [disabled]="submitInProgress">
+    <button mat-raised-button matTooltip="Cancel" aria-label="Cancel" (click)="cancelClick()"
+        [disabled]="submitInProgress">
         Cancel
     </button>
 </div>
